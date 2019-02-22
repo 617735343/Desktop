@@ -2,7 +2,7 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img  class="item-img" :src='item.imgUrl' alt="">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -17,32 +17,8 @@
 <script>
 export default {
   name: "HomeRecommend",
-  data() {
-    return {
-      recommendList: [
-        {
-          id: "0001",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/201403/07/30b534b0de51ccac2906bcb6ba159988.jpg_200x200_2f08733b.jpg",
-          title: "长隆野生动物世界",
-          desc: "熊猫三胞胎与您共享欢乐时光"
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/201403/07/30b534b0de51ccac2906bcb6ba159988.jpg_200x200_2f08733b.jpg",
-          title: "长隆野生动物世界",
-          desc: "熊猫三胞胎与您共享欢乐时光"
-        },
-        {
-          id: "0003",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/201403/07/30b534b0de51ccac2906bcb6ba159988.jpg_200x200_2f08733b.jpg",
-          title: "长隆野生动物世界",
-          desc: "熊猫三胞胎与您共享欢乐时光"
-        }
-      ]
-    };
+  props: {
+    list: Array
   }
 };
 </script>

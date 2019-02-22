@@ -16,71 +16,18 @@
 <script>
 export default {
   name: "HomeIcons",
-  data() {
+  props:{
+    list: Array
+  },
+  data (){
     return {
-      swiperOption: {},
-      iconList: [
-        {
-          id: "001",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-          desc: "景点门票"
-        },
-        {
-          id: "002",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
-          desc: "广州必游"
-        },
-        {
-          id: "003",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png",
-          desc: "动植物园"
-        },
-        {
-          id: "004",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png",
-          desc: "游乐场"
-        },
-        {
-          id: "005",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-          desc: "景点门票"
-        },
-        {
-          id: "006",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
-          desc: "广州必游"
-        },
-        {
-          id: "007",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png",
-          desc: "动植物园"
-        },
-        {
-          id: "008",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png",
-          desc: "游乐场"
-        },
-        {
-          id: "009",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png",
-          desc: "玩转长隆"
-        }
-      ]
-    };
+      swiperOption:{}
+    }
   },
   computed: {
     pages() {
       const pages = [];
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8);
         if (!pages[page]) {
           pages[page] = [];
