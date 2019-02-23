@@ -4,7 +4,7 @@
       <div class="area">
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
-          <div class="button-wrapper" >
+          <div class="button-wrapper">
             <div class="button">广州</div>
           </div>
         </div>
@@ -17,10 +17,14 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item,key) of cities" :key="key" >
+      <div class="area" v-for="(item,key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">{{innerItem.name}}</div>
+          <div
+            class="item border-bottom"
+            v-for="innerItem of item"
+            :key="innerItem.id"
+          >{{innerItem.name}}</div>
         </div>
       </div>
     </div>
@@ -28,15 +32,30 @@
 </template>
 
 <script>
-import Bscroll from 'better-scroll'
+//调用better-scroll库
+import Bscroll from "better-scroll";
 export default {
   name: "CityList",
-  props:{
+  props: {
     hot: Array,
-    cities: Object
+    cities: Object,
+    //Alphabe传过来的letter
+    letter: String
   },
-  mounted (){
-      this.scroll = new Bscroll(this.$refs.wrapper)
+  mounted() {
+    //用better-scroll的库
+    this.scroll = new Bscroll(this.$refs.wrapper);
+  },
+  //监听letter的变化
+  watch: {
+    letter() {
+      // console.log(this.letter)
+      if (this.letter) {
+        //让滚动条跟着用户点击的字母变化而变化
+        const element = this.$refs[this.letter][0];
+        this.scroll.scrollToElement(element);
+      }
+    }
   }
 };
 </script>
