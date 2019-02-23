@@ -16,13 +16,13 @@
 <script>
 export default {
   name: "HomeIcons",
-  props:{
+  props: {
     list: Array
   },
-  data (){
+  data() {
     return {
-      swiperOption:{}
-    }
+      swiperOption: {}
+    };
   },
   computed: {
     pages() {

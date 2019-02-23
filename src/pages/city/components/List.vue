@@ -5,14 +5,19 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">广州</div>
+            <div class="button">{{this.$store.state.city}}</div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of hot" :key="item.id">
+          <div
+            class="button-wrapper"
+            v-for="item of hot"
+            :key="item.id"
+            @click="handleCityClick(item.name)"
+          >
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -24,6 +29,7 @@
             class="item border-bottom"
             v-for="innerItem of item"
             :key="innerItem.id"
+            @click="handleCityClick(innerItem.name)"
           >{{innerItem.name}}</div>
         </div>
       </div>
@@ -34,6 +40,7 @@
 <script>
 //调用better-scroll库
 import Bscroll from "better-scroll";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "CityList",
   props: {
@@ -41,6 +48,14 @@ export default {
     cities: Object,
     //Alphabe传过来的letter
     letter: String
+  },
+  methods: {
+    handleCityClick(city) {
+      // this.$store.dispatch("changeCity", city);
+      this.changeCity(city);
+      this.$router.push("/");
+    },
+    ...mapActions(["changeCity"]) //把changeCity的方法映射到actions中
   },
   mounted() {
     //用better-scroll的库

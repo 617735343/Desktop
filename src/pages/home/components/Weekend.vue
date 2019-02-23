@@ -19,8 +19,8 @@
 <script>
 export default {
   name: "HomeWeekend",
-  props:{
-    list:Array
+  props: {
+    list: Array
   }
 };
 </script>
@@ -58,7 +58,6 @@ export default {
     color: #ccc;
     ellipsis();
   }
-
 }
 </style>
 

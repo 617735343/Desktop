@@ -14,7 +14,7 @@
 <script>
 export default {
   name: "HomeSwiper",
-  props:{
+  props: {
     list: Array
   },
   data: function() {
@@ -22,12 +22,11 @@ export default {
       swiperOption: {
         pagination: ".swiper-pagination",
         loop: true
-      },
-      
-    }
+      }
+    };
   },
-  computed:{
-    showSwiper (){
+  computed: {
+    showSwiper() {
       return this.list.length;
     }
   }
