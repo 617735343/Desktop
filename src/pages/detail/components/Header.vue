@@ -38,8 +38,15 @@ export default {
           }
       }
   },
+  //每次页面展示的时候被执行
   activated() {
+      //绑定scroll事件
       window.addEventListener('scroll',this.handleScroll);
+  },
+  //页面即将被隐藏，或者被替换成新的页面的时候执行
+  deactivated() {
+      //解绑scroll事件
+      window.removeEventListener('scroll',this.handleScroll);
   }
 };
 </script>
